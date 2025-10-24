@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂İyi ki doğdun Kağan - RGB Ayıcık</title>
+    <title>🎂 İyi ki doğdun Kağan - RGB Ayıcık</title>
     <style>
         * {
             margin: 0;
@@ -20,9 +20,18 @@
             overflow: hidden;
             color: white;
             position: relative;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00);
+            background-size: 400% 400%;
+            animation: gradientBackground 8s ease infinite;
         }
 
-        /* RGB Arka Plan */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* RGB Arka Plan Overlay */
         .rgb-background {
             position: fixed;
             top: 0;
@@ -31,6 +40,7 @@
             height: 100%;
             z-index: -2;
             animation: rgbBackground 8s linear infinite;
+            opacity: 0.9;
         }
 
         @keyframes rgbBackground {
@@ -47,20 +57,189 @@
             text-align: center;
             position: relative;
             z-index: 10;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            max-width: 90%;
+        }
+
+        /* Web Sitesi Logosu - Pasta */
+        .website-logo {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 120px;
+            z-index: 1000;
+            animation: floatLogo 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .birthday-cake {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cake-plate {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 15px;
+            background: linear-gradient(45deg, #c0c0c0, #e0e0e0);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cake-layer-bottom {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 30px;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            border-radius: 15px 15px 8px 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cake-layer-middle {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 25px;
+            background: linear-gradient(45deg, #FFB6C1, #FF69B4);
+            border-radius: 12px 12px 6px 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cake-layer-top {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 20px;
+            background: linear-gradient(45deg, #98FB98, #32CD32);
+            border-radius: 10px 10px 5px 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cream {
+            position: absolute;
+            bottom: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85px;
+            height: 8px;
+            background: linear-gradient(45deg, #FFF, #FFE4E1);
+            border-radius: 4px;
+        }
+
+        .candle {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 25px;
+            background: linear-gradient(to bottom, #FFD700, #FFFF00);
+            border-radius: 3px;
+            z-index: 2;
+        }
+
+        .flame {
+            position: absolute;
+            bottom: 115px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 18px;
+            background: linear-gradient(to bottom, #FF4500, #FFA500, #FFD700);
+            border-radius: 50% 50% 20% 20%;
+            animation: flameFlicker 0.8s ease-in-out infinite alternate;
+            filter: blur(1px);
+            box-shadow: 0 0 15px #FF4500, 0 0 30px #FFA500;
+        }
+
+        .sprinkles {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sprinkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: sprinkleFloat 3s ease-in-out infinite;
+        }
+
+        .sprinkle:nth-child(1) { top: 10%; left: 20%; background: #FF0000; animation-delay: 0s; }
+        .sprinkle:nth-child(2) { top: 30%; left: 80%; background: #00FF00; animation-delay: 0.5s; }
+        .sprinkle:nth-child(3) { top: 60%; left: 40%; background: #0000FF; animation-delay: 1s; }
+        .sprinkle:nth-child(4) { top: 80%; left: 70%; background: #FFFF00; animation-delay: 1.5s; }
+        .sprinkle:nth-child(5) { top: 40%; left: 10%; background: #FF00FF; animation-delay: 2s; }
+
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateX(-50%) translateY(-10px) rotate(5deg);
+            }
+            66% {
+                transform: translateX(-50%) translateY(-5px) rotate(-5deg);
+            }
+        }
+
+        @keyframes flameFlicker {
+            0% {
+                transform: translateX(-50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.2) rotate(5deg);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes sprinkleFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(180deg);
+            }
         }
 
         .title {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 10px;
             font-weight: bold;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             animation: titleGlow 4s ease-in-out infinite alternate;
+            margin-top: 40px;
+        }
+
+        .birthday-date {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: dateGlow 3s ease-in-out infinite alternate;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
         }
 
         @keyframes titleGlow {
@@ -69,6 +248,29 @@
             }
             to {
                 text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+        }
+
+        @keyframes dateGlow {
+            0% {
+                color: #ff0000;
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            }
+            25% {
+                color: #ffff00;
+                text-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+            }
+            50% {
+                color: #00ff00;
+                text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            }
+            75% {
+                color: #00ffff;
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+            }
+            100% {
+                color: #ff00ff;
+                text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
             }
         }
 
@@ -620,6 +822,10 @@
             .title {
                 font-size: 24px;
             }
+
+            .birthday-date {
+                font-size: 18px;
+            }
             
             .container {
                 padding: 20px;
@@ -631,6 +837,12 @@
                 right: 15px;
                 padding: 10px 16px;
                 font-size: 14px;
+            }
+
+            .website-logo {
+                width: 100px;
+                height: 100px;
+                top: -60px;
             }
         }
 
@@ -654,14 +866,45 @@
             .title {
                 font-size: 20px;
             }
+
+            .birthday-date {
+                font-size: 16px;
+            }
+
+            .website-logo {
+                width: 80px;
+                height: 80px;
+                top: -50px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="rgb-background"></div>
     
+    <!-- Web Sitesi Logosu - Büyük Pasta -->
+    <div class="website-logo">
+        <div class="birthday-cake">
+            <div class="cake-plate"></div>
+            <div class="cake-layer-bottom"></div>
+            <div class="cake-layer-middle"></div>
+            <div class="cake-layer-top"></div>
+            <div class="cream"></div>
+            <div class="candle"></div>
+            <div class="flame"></div>
+            <div class="sprinkles">
+                <div class="sprinkle"></div>
+                <div class="sprinkle"></div>
+                <div class="sprinkle"></div>
+                <div class="sprinkle"></div>
+                <div class="sprinkle"></div>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <h1 class="title">🎉 İyi ki Doğdun Kağan! 🎉</h1>
+        <div class="birthday-date">24.10.2025</div>
         
         <div class="bear-container">
             <div class="rgb-effect"></div>
